@@ -87,7 +87,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 
 # Training Loop
-epochs = 3
+epochs = 20
 
 for epoch in range(epochs):
     model.train()

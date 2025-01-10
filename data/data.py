@@ -1,5 +1,9 @@
 import os
 import requests
+import pandas as pd
+import typer
+
+app = typer.Typer()
 
 def download_file(url, folder_path, filename):
     # Create the folder if it doesn't exist
@@ -16,7 +20,9 @@ def download_file(url, folder_path, filename):
         for chunk in response.iter_content(chunk_size=8192):
             f.write(chunk)
 
-def main():
+@app.command()
+def download_csv():
+    """Download Test.csv and Train.csv files into the 'raw' folder."""
     # Get the absolute path of the folder where the script is located
     script_dir = os.path.dirname(os.path.abspath(__file__))  
 
@@ -33,5 +39,43 @@ def main():
     # Download the Train.csv file into the 'raw' folder
     download_file(train_url, raw_folder, "Train.csv")
 
+@app.command()
+def analysis():
+    """Analyze the downloaded data and return the number of unique event IDs."""
+    # Get the absolute path of the folder where the script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    # Create path to the 'raw' folder in the script's directory
+    raw_folder = os.path.join(script_dir, "raw")
+
+    # File paths
+    test_file_path = os.path.join(raw_folder, "Test.csv")
+    train_file_path = os.path.join(raw_folder, "Train.csv")
+
+    # Load data
+    test_data = pd.read_csv(test_file_path)
+    train_data = pd.read_csv(train_file_path)
+
+    # Extract unique event_ids from both datasets
+    test_event_ids = test_data['event_id'].apply(lambda x: x.split('_X_')[0]).unique()
+    train_event_ids = train_data['event_id'].apply(lambda x: x.split('_X_')[0]).unique()
+
+    # Combine unique event_ids from both datasets
+    all_unique_event_ids = set(test_event_ids).union(set(train_event_ids))
+
+    # Count the number of unique event_ids
+    test_event_ids_count = len(test_event_ids)
+    train_event_ids_count = len(train_event_ids)
+
+    unique_event_count = len(all_unique_event_ids)
+    
+
+    # Print the result
+    typer.echo(f'Total number of unique event_ids train: {train_event_ids_count}')
+
+    typer.echo(f'Total number of unique event_ids test: {test_event_ids_count}')
+
+    typer.echo(f'Total number of unique event_ids: {unique_event_count}')
+
 if __name__ == "__main__":
-    main()
+    app()

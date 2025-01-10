@@ -1,17 +1,13 @@
-# mlops_2025_floods_prediction
-
-predicting floods in africa - project for mlops course at dtu 2025
-
 **Project description**
 
-**Problem statement **
+**Problem statement**
 Flooding poses a significant threat to both rural and urban areas in South Africa, with devastating consequences for communities, infrastructure, and the economy. From 1981 to 2023, numerous floods were reported across the country, yet many events, especially in urban areas, were either underreported or not recorded with sufficient detail for further analysis or prediction work. 
 
 The goal of the project is to classify the probability of floodings from cloudless images of the areas of interest. In the project we will try and determine the precise date a flood occurred and distinguish between time series with and without flood events.
 
 This project is part of a competition which can be found here: https://zindi.africa/competitions/inundata-mapping-floods-in-south-africa?ref=mlcontests
 
-**Data description **
+**Data description**
 
 An imbalanced dataset is provided where events are labeled with either 0 or 1, indicating whether a flood event occurred (1) or did not occur (0). Both sets of events contain randomly selected 40-60 weeks prior and post flood date, to ensure the flood event date is not always the middle index. For each location the CHIRPS precipitation data has been aggregated over a 5km radius.
 

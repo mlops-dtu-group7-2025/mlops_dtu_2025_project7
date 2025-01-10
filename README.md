@@ -35,7 +35,7 @@ Sentinel 2 B8 (NIR)
 Sentinel 2 B11 (SWIR)
 slope (derived from NASA SRTM)
 
-**Frameworks and models**
+Frameworks and models
 
 We intend to use the timeseriesAI (tsAI) framework to work with the time series data. It contains different models such as LSTM and ResNet, which we intend to use.
 

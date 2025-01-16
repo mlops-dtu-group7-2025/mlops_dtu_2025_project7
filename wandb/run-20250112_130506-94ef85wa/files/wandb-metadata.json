@@ -1,0 +1,44 @@
+{
+  "os":  "macOS-15.1.1-arm64-arm-64bit",
+  "python":  "CPython 3.11.5",
+  "startedAt":  "2025-01-12T12:05:07.577731Z",
+  "program":  "/Users/williampeytz/Documents/GitHub/mlops_dtu_2025_project7/src/mlops_2025_floods_prediction/train.py",
+  "codePath":  "src/mlops_2025_floods_prediction/train.py",
+  "git":  {
+    "remote":  "https://github.com/MrCogito/mlops_dtu_2025_project7.git",
+    "commit":  "16fccfb46dda9ab50888d521a78b5aa6911aad13"
+  },
+  "email":  "s204145@student.dtu.dk",
+  "root":  "/Users/williampeytz/Documents/GitHub/mlops_dtu_2025_project7",
+  "host":  "Williams-Laptop.local",
+  "executable":  "/Users/williampeytz/anaconda3/bin/python",
+  "codePathLocal":  "src/mlops_2025_floods_prediction/train.py",
+  "cpu_count":  10,
+  "cpu_count_logical":  10,
+  "disk":  {
+    "/":  {
+      "total":  "994662584320",
+      "used":  "240777371648"
+    },
+    "/System/Volumes/Data":  {
+      "total":  "994662584320",
+      "used":  "240777371648"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "cpu":  {
+    "count":  10,
+    "countLogical":  10
+  },
+  "apple":  {
+    "name":  "Apple M1 Pro",
+    "ecpuCores":  2,
+    "pcpuCores":  8,
+    "gpuCores":  16,
+    "memoryGb":  16,
+    "swapTotalBytes":  "4294967296",
+    "ramTotalBytes":  "17179869184"
+  }
+}

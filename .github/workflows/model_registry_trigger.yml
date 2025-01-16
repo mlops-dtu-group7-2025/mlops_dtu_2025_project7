@@ -1,0 +1,30 @@
+name: Trigger Workflow on Model Registry Change
+
+on:
+  schedule:
+    - cron: '*/30 * * * *' # Runs every 30 minutes (adjust as needed)
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  monitor-wandb:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.8'
+
+    - name: Install dependencies
+      run: pip install wandb
+
+    - name: Check for model registry changes
+      env:
+        WANDB_API_KEY: ${{ secrets.WANDB_API_KEY }}
+        WANDB_PROJECT: 'floods_prediction'
+        WANDB_ENTITY: 'wpeytz-danmarks-tekniske-universitet-dtu'
+      run: |
+        python .github/scripts/check_registry.py

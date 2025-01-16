@@ -3,6 +3,9 @@ import requests
 import pandas as pd
 import typer
 
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 app = typer.Typer()
 
 def download_file(url, folder_path, filename):
@@ -76,6 +79,30 @@ def analysis():
     typer.echo(f'Total number of unique event_ids test: {test_event_ids_count}')
 
     typer.echo(f'Total number of unique event_ids: {unique_event_count}')
+
+@app.command()
+def data_inspection():
+    # Load the dataset
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    raw_folder = os.path.join(script_dir, "raw")
+    train_file_path = os.path.join(raw_folder, "Test.csv")
+
+    data = pd.read_csv(train_file_path)
+
+    data['event_id'] = data['event_id'].apply(lambda x: '_'.join(x.split('_')[0:2]))
+    data['event_idx'] = data.groupby('event_id', sort=False).ngroup()
+    # data_test['event_id'] = data_test['event_id'].apply(lambda x: '_'.join(x.split('_')[0:2]))
+    # data_test['event_idx'] = data_test.groupby('event_id', sort=False).ngroup()
+
+    data['event_t'] = data.groupby('event_id').cumcount()
+    # data_test['event_t'] = data_test.groupby('event_id').cumcount()
+
+    # Basic exploration
+    print(data.head())
+    print(data.info())
+    print(data.describe())
+    print('-------------------------')
+    print(data.columns)
 
 if __name__ == "__main__":
     app()

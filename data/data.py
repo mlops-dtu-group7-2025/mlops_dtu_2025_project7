@@ -81,7 +81,7 @@ def analysis():
     typer.echo(f'Total number of unique event_ids: {unique_event_count}')
 
 @app.command()
-def play():
+def data_inspection():
     # Load the dataset
     script_dir = os.path.dirname(os.path.abspath(__file__))
     raw_folder = os.path.join(script_dir, "raw")

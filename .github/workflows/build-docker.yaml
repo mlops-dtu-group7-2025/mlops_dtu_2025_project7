@@ -1,26 +1,27 @@
-name: Build and Push Docker to GHCR
+name: Docker Build and Push
 
 on:
-  # Trigger when main is updated (e.g., merged PRs)
   push:
-    branches: [ main ]
-  # Allow manual runs from GitHub UI
+    branches: [ "main" ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  build-push:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
+      # Step 1: Check out the repository
       - name: Check out code
         uses: actions/checkout@v3
 
+      # Step 2: Build and push the Docker image
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: dockerfiles/train.dockerfile
+          file: Dockerfile  # Path to your Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/mlops-floods_train:latest
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          tags: ghcr.io/${{ github.repository_owner }}/my-image-name:latest

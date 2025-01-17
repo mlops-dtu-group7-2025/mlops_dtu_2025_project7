@@ -20,6 +20,6 @@ jobs:
       - uses: docker/build-push-action@v2
         with:
           context: .
-          file: dockerfiles/Dockerfile  # Path to your Dockerfile
+          file: dockerfiles/train.dockerfile  # Path to your Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/docker_train:latest

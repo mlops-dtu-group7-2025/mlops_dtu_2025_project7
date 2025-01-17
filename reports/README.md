@@ -54,7 +54,7 @@ will check the repositories and the code to verify your answers.
 * [x] Create the initial file structure using cookiecutter with an appropriate template (M6)
 * [x] Fill out the `data.py` file such that it downloads whatever data you need and preprocesses it (if necessary) (M6)
 * [x] Add a model to `model.py` and a training procedure to `train.py` and get that running (M6)
-* [ ] Remember to fill out the `requirements.txt` and `requirements_dev.txt` file with whatever dependencies that you
+* [x] Remember to fill out the `requirements.txt` and `requirements_dev.txt` file with whatever dependencies that you
     are using (M2+M6)
     (Karol)
 * [ ] Remember to comply with good coding practices (`pep8`) while doing the project (M7)  (Kazi)
@@ -62,7 +62,7 @@ will check the repositories and the code to verify your answers.
 * [ ] Setup version control for your data or part of your data (M8)
 * [x] Add command line interfaces and project commands to your code where it makes sense (M9)
 * [x] Construct one or multiple docker files for your code (M10)
-* [ ] Build the docker files locally and make sure they work as intended (M10) (Karol + update readme with commands)
+* [x] Build the docker files locally and make sure they work as intended (M10) (Karol + update readme with commands)
 * [x] Write one or multiple configurations files for your experiments (M11) 
 * [x] Used Hydra to load the configurations and manage your hyperparameters (M11)
 * [ ] X Use profiling to optimize your code (M12)   (Leave it for now)
@@ -87,12 +87,12 @@ will check the repositories and the code to verify your answers.
 * [ ] 
 * [ ] Create a data storage in GCP Bucket for your data and link this with your data version control setup (M21) (3. Kazi)
 * [ ] Create a trigger workflow for automatically building your docker images (M21) (4. Karol )
-* [ ] Get your model training in GCP using either the Engine or Vertex AI (M21) (3. )
+* [ ] Get your model training in GCP using either the Engine or Vertex AI (M21) (3.Kazi )
 * [ ] Create a FastAPI application that can do inference using your model (M22) (5.Samyak )
-* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23) (3. )
-* [ ] Write API tests for your application and setup continues integration for these (M24) (5. )
+* [ ] Deploy your model in GCP using either Functions or Run as the backend (M23) (3.Kazi )
+* [ ] Write API tests for your application and setup continues integration for these (M24) (5.Samyak )
 * [ ] Load test your application (M24) (5. )
-* [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25) (5. )
+* [ ] Create a more specialized ML-deployment API using either ONNX or BentoML, or both (M25) (5.Samyak )
 * [ ] Create a frontend for your API (M26) (6. William)
 
 ### Week 3

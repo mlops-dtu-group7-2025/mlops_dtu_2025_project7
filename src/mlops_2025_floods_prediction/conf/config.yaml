@@ -18,3 +18,4 @@ training:
 
 wandb:
   project: "floods-prediction"
+  entity: "wpeytz-danmarks-tekniske-universitet-dtu"

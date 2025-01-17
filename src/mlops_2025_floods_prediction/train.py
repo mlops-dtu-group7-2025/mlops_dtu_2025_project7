@@ -18,6 +18,7 @@ def main(cfg: DictConfig):
     # Initialize W&B using Hydra config
     wandb.init(
         project=cfg.wandb.project,
+        entity=cfg.wandb.entity,
         config={
             "architecture": cfg.model.architecture,
             "batch_size": cfg.training.batch_size,
@@ -154,3 +155,5 @@ def main(cfg: DictConfig):
 
     # Finish W&B logging
     wandb.finish()
+if __name__ == "__main__":
+    main()

@@ -180,3 +180,9 @@ cython_debug/
 # csv file ignore
 
 *.csv
+
+#ignore outputs
+src/mlops_2025_floods_prediction/outputs/*
+src/mlops_2025_floods_prediction/wandb/*
+outputs/*
+wandb/*

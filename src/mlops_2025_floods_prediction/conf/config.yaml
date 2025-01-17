@@ -1,5 +1,5 @@
 paths:
-  raw_folder: "../../data/raw"
+  raw_folder: "data/raw"
   train_file: "Train.csv"
   test_file: "Test.csv"
   model_output: "lstm_model.pth"

@@ -6,7 +6,22 @@ import typer
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from src.mlops_2025_floods_prediction.logging_util import setup_logging
+import logging
+
+setup_logging()
+logger = logging.getLogger(__name__)
+
 app = typer.Typer()
+
+def load_data(file_path):
+    logger.info(f"Loading data from {file_path}")
+    try:
+        # Load your data here
+        logger.debug("Successfully loaded the data.")
+    except Exception as e:
+        logger.error(f"Error loading data: {e}")
+        raise
 
 def download_file(url, folder_path, filename):
     # Create the folder if it doesn't exist
@@ -54,6 +69,8 @@ def analysis():
     # File paths
     test_file_path = os.path.join(raw_folder, "Test.csv")
     train_file_path = os.path.join(raw_folder, "Train.csv")
+
+    load_data(train_file_path)
 
     # Load data
     test_data = pd.read_csv(test_file_path)

@@ -46,12 +46,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install torch==${{ matrix.torch-version }} torchvision -f https://download.pytorch.org/whl/cpu/torch_stable.html
           pip install -r requirements.txt
+          pip install -r requirements_dev.txt
 
       # Run linter (flake8 for example)
       - name: Run Linter
         run: |
           pip install flake8
-          flake8 src/
+          flake8 src/ tests/
 
       # Run tests
       - name: Run Tests
@@ -63,4 +64,4 @@ jobs:
       - name: Run Black
         run: |
           pip install black
-          black src/
+          black src/ tests/

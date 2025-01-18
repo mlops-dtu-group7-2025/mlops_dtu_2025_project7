@@ -6,6 +6,7 @@ from torch.utils.data import Dataset
 
 class MyDataset(Dataset):
     """My custom dataset."""
+
     def __init__(self, raw_data_path: Path = Path("../../data/raw/Train.csv")) -> None:
         self.data_path = raw_data_path
 
@@ -18,8 +19,11 @@ class MyDataset(Dataset):
     def preprocess(self, output_folder: Path = Path("../../data/processed")) -> None:
         """Preprocess the raw data and save it to the output folder."""
 
-def preprocess(raw_data_path: Path = Path("../../data/raw/Train.csv"),
-    output_folder: Path = Path("../../data/processed")) -> None:
+
+def preprocess(
+    raw_data_path: Path = Path("../../data/raw/Train.csv"),
+    output_folder: Path = Path("../../data/processed"),
+) -> None:
     print("Preprocessing data...")
     dataset = MyDataset(raw_data_path)
     dataset.preprocess(output_folder)

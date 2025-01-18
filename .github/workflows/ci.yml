@@ -41,3 +41,9 @@ jobs:
       run: |
         pip install pytest
         pytest tests/
+
+    # Pre-commit Hooks
+    - name: Run Black
+      run: |
+        pip install black
+        black src/

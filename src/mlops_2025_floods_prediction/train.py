@@ -12,6 +12,21 @@ import wandb
 import hydra
 from omegaconf import DictConfig
 
+from logging_util import setup_logging
+import logging
+
+# Setup logging
+setup_logging()
+
+# Create a logger for this module
+logger = logging.getLogger(__name__)
+
+logger.info("Starting the training script.")
+logger.debug("Debug information about the dataset.")
+logger.warning("Potential issue detected.")
+logger.error("An error occurred.")
+logger.critical("Critical issue! Immediate attention required.")
+
 # Hydra config decorator
 @hydra.main(version_base=None, config_path="conf", config_name="config")
 def main(cfg: DictConfig):
